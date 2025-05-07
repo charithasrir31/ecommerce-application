@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="bg-white shadow-sm py-2">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="h4 mb-0">ShopEase</h1>
+      <div>
+        <button class="btn btn-outline-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button class="btn btn-outline-secondary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+        <button class="btn btn-outline-danger btn-sm d-none" id="logoutButton" onclick="logout()">Logout</button>
+        <button class="btn btn-outline-light btn-sm" id="themeToggle">
+          <i class="bi bi-brightness-high"></i>
+        </button>        
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4">
+    <ul class="nav nav-tabs" id="appTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab">Home</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="cart-tab" data-bs-toggle="tab" data-bs-target="#cart" type="button" role="tab">Cart</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="wishlist-tab" data-bs-toggle="tab" data-bs-target="#wishlist" type="button" role="tab">Wishlist</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button" role="tab">Orders</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="account-tab" data-bs-toggle="tab" data-bs-target="#account" type="button" role="tab">Account</button>
+      </li>
+    </ul>
+
+    <div class="tab-content pt-4" id="appTabsContent">
+      <div class="tab-pane fade show active" id="home" role="tabpanel">
+        <div class="input-group mb-4">
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
+          <input type="text" id="searchInput" class="form-control" placeholder="Search products...">
+        </div>
+
+        <div class="mb-4">
+          <h5>Categories</h5>
+          <div class="d-flex flex-wrap gap-2" id="categoryFilters">
+            <button class="btn btn-sm btn-outline-primary category-btn active">All</button>
+            <button class="btn btn-sm btn-outline-primary category-btn">Electronics</button>
+            <button class="btn btn-sm btn-outline-primary category-btn">Clothing</button>
+            <button class="btn btn-sm btn-outline-primary category-btn">Footwear</button>
+            <button class="btn btn-sm btn-outline-primary category-btn">Home</button>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 id="categoryTitle">All Products</h5>
+          <span class="text-muted" id="productCount"></span>
+        </div>
+        <div class="row g-4" id="productList">
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wJTIwY29tcHV0ZXJ8ZW58MHx8MHx8fDA%3D" 
+                class="card-img-top product-img" alt="Laptop">
+                <div class="card-body">
+                  <h5 class="card-title">Laptop Pro 15"</h5>
+                  <p class="card-text">$999.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://images.meesho.com/images/products/344388183/wvxcv_400.webp" class="card-img-top product-img" alt="T-Shirt">
+                <div class="card-body">
+                  <h5 class="card-title">Men's T-Shirt</h5>
+                  <p class="card-text">$19.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://inc5shop.com/cdn/shop/products/600619_BEIGE_65d81c76-8df1-4184-ae10-ce341da675e6.jpg?v=1744878913&width=533" class="card-img-top product-img" alt="Women stylish Flat Footwear">
+                <div class="card-body">
+                  <h5 class="card-title">Women stylish flat footwear</h5>
+                  <p class="card-text">$40.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://bersache.com/cdn/shop/files/WhatsAppImage2024-05-08at13.24.46.jpg?v=1741007464&width=1080" class="card-img-top product-img" alt="Shoes">
+                <div class="card-body">
+                  <h5 class="card-title">Running Shoes</h5>
+                  <p class="card-text">$59.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MXLJ3ref_VW_34FR+watch-case-42-aluminum-jetblack-nc-s10_VW_34FR+watch-face-42-aluminum-jetblack-s10_VW_34FR?wid=5120&hei=3280&bgc=fafafa&trim=1&fmt=p-jpg&qlt=80&.v=SmNOTU80TDhXckVBUGdaWWZTZVBXcDNqbENGcEFFTlJVaXJwL2VzdGxEMU9NU1VZS1dIdzdkNjZzejNRdFdUZzBnRnJNVU50TjZtbUN3ZjYvVksrL1FtTHNhRmRKQkE2OXJHRVEvRTFWdXVoSHlqYUY2YWdsek45M29HTWxyVHhWNEM0ZHZzMzMzajJiOGZuamRiTE9rUVN3R3VxZWhYYXgwOHljYmZFMXBocmMyRTN3NCt6QkoxaUdRb0FBay9VYktGTHdENW9lYUFnak5pcy9ReEdDVGFYRW5lZTlQWUFSemFVTERGOFVXQ0pMTGI4QWxGbG1DY25rS1FILzcyQg" 
+                class="card-img-top product-img" alt="Smart Watch">
+                <div class="card-body">
+                  <h5 class="card-title">Smart Watch</h5>
+                  <p class="card-text">$129.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://m.media-amazon.com/images/I/71llERwkjWL._AC_UY350_.jpg" class="card-img-top product-img" alt="Winter Jacket">
+                <div class="card-body">
+                  <h5 class="card-title">Winter Jacket</h5>
+                  <p class="card-text">$59.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://m.media-amazon.com/images/I/614VGnQmTpL._SY355_.jpg" class="card-img-top product-img" alt="Wireless Earbuds">
+                <div class="card-body">
+                  <h5 class="card-title">Wireless Earbuds</h5>
+                  <p class="card-text">$49.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://excellentphoto.ca/cdn/shop/files/IQWAVEL_5.webp?v=1723149077&width=1200" class="card-img-top product-img" alt="Bluetooth Speaker">
+                <div class="card-body">
+                  <h5 class="card-title">Bluetooth Speaker</h5>
+                  <p class="card-text">$39.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/vacuum-cleaner/h/i/h/-original-imah4n6ykqngsq6h.jpeg?q=20&crop=false" class="card-img-top product-img" alt="Vacuum Cleaner">
+                <div class="card-body">
+                  <h5 class="card-title">Vacuum Cleaner</h5>
+                  <p class="card-text">$89.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://m.media-amazon.com/images/I/31kSpToKi8L._SX300_SY300_QL70_FMwebp_.jpg" class="card-img-top product-img" alt="Wireless Mouse">
+                <div class="card-body">
+                  <h5 class="card-title">Wireless Mouse</h5>
+                  <p class="card-text">$29.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://www.frenchblossom.com/cdn/shop/products/Caval-Basket-Sunny-Night-Detail_1080x.jpg?v=1604090470" class="card-img-top product-img" alt="Sneakers">
+                <div class="card-body">
+                  <h5 class="card-title">Sneakers</h5>
+                  <p class="card-text">$55.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://ik.imagekit.io/2xkwa8s1i/img/Premium_Cushion_Cover/Set5/Omega/Grey/2.jpg?tr=w-1200" class="card-img-top product-img" alt="Sofa Cushion Set">
+                <div class="card-body">
+                  <h5 class="card-title">Sofa Cushion Set</h5>
+                  <p class="card-text">$39.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://assets.ajio.com/medias/sys_master/root/20241109/0tsd/672e8ecbf9b8ef490b102542/ikon_fashion_brown_solid_regular_fit_shirt.jpg" 
+                class="card-img-top product-img" alt="Formal Shirt">
+                <div class="card-body">
+                  <h5 class="card-title">Formal Shirt</h5>
+                  <p class="card-text">$29.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://m.media-amazon.com/images/I/51nIHi7R08L._SX385_.jpg" class="card-img-top product-img" alt="Women's Plain Work Shirts">
+                <div class="card-body">
+                  <h5 class="card-title">Women's Plain Work Shirts</h5>
+                  <p class="card-text">$45.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card product-card">
+                <img src="https://m.media-amazon.com/images/I/61kV7F9kVuL._AC_UF894,1000_QL80_.jpg" class="card-img-top product-img" alt="Showpiece shelf stand for wall">
+                <div class="card-body">
+                  <h5 class="card-title">Showpiece shelf stand for wall</h5>
+                  <p class="card-text">$45.99</p>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                </div>
+              </div>
+            </div>
+
+          </div>          
+      </div>
+
+      <div class="tab-pane fade" id="cart" role="tabpanel">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Your Cart</h5>
+            <div id="cartItems">
+              <p class="text-muted">Your cart is empty</p>
+            </div>
+            <div class="d-flex justify-content-between fw-bold mt-3">
+              <span>Total:</span>
+              <span id="cartTotal">$0.00</span>
+            </div>
+            <div class="checkout-section">
+              <button class="btn btn-success w-100" id="checkoutButton" disabled>Proceed to Checkout</button>
+              <div id="checkoutMessage" class="text-center mt-3 text-success d-none">Order placed successfully!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="wishlist" role="tabpanel">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Wishlist</h5>
+            <ul id="wishlistItems" class="list-group">
+              <li class="list-group-item">Wireless Headphones</li>
+              <li class="list-group-item">Smart Watch</li>
+              <li class="list-group-item">Bluetooth Speaker</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="orders" role="tabpanel">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Your Orders</h5>
+            <ul id="orderList" class="list-group">
+              <li class="list-group-item">Order #1001 - Delivered</li>
+              <li class="list-group-item">Order #1002 - Shipped</li>
+              <li class="list-group-item">Order #1003 - Processing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="account" role="tabpanel">
+        <div class="card shadow-sm mt-3">
+          <div class="card-body">
+            <h5 class="card-title mb-4">Account Information</h5>
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" id="accountName" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="accountEmail" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input type="text" class="form-control" id="accountPhone" disabled>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Address</label>
+                <textarea class="form-control" id="accountAddress" rows="2" disabled></textarea>
+              </div>
+              <div class="text-end">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editAccountModal">
+                  Edit Details
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="editAccountModal" tabindex="-1" aria-labelledby="editAccountModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editAccountModalLabel">Edit Account Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="editAccountForm">
+                <div class="mb-3">
+                  <label for="editPhone" class="form-label">Phone</label>
+                  <input type="text" class="form-control" id="editPhone">
+                </div>
+                <div class="mb-3">
+                  <label for="editAddress" class="form-label">Address</label>
+                  <textarea class="form-control" id="editAddress" rows="2"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" onclick="saveAccountDetails()">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </main>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div id="loginAlert" class="alert alert-danger d-none">Please enter both username and password.</div>
+          <input type="text" class="form-control mb-2" id="loginUsername" placeholder="Username" />
+          <input type="password" class="form-control mb-2" id="loginPassword" placeholder="Password" />
+          <button class="btn btn-primary w-100" onclick="handleLogin()">Login</button>
+          <p class="mt-2 text-center">
+            Don't have an account? <a href="#" onclick="switchToRegister()">Register here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Register</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control mb-2" id="registerUsername" placeholder="Username" />
+          <input type="email" class="form-control mb-2" id="registerEmail" placeholder="Email" />
+          <input type="password" class="form-control mb-2" id="registerPassword" placeholder="Password" />
+          <button class="btn btn-success w-100" onclick="handleRegister()">Register</button>
+          <p class="mt-2 text-center">
+            Already have an account? <a href="#" onclick="switchToLogin()">Login here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Account Modal -->
+    <div class="modal fade" id="editAccountModal" tabindex="-1" aria-labelledby="editAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editAccountModalLabel">Edit Account Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control mb-2" id="editPhone" placeholder="Phone" />
+          <input type="text" class="form-control mb-2" id="editAddress" placeholder="Address" />
+          <button class="btn btn-primary w-100" onclick="saveAccountDetails()">Save</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  <script src = "script.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+/*
+   Base Styles & Animation
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #1c3875, #3a5687, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: gradientFlow 20s ease infinite;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/*
+   Header & Navigation
+*/
+
+header {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  padding: 16px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid rgba(0, 217, 255, 0.3);
+  backdrop-filter: blur(6px);
+  transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+header h1 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00d9ff, 0 0 14px #0077ff;
+}
+
+header nav { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/*
+   Buttons
+*/
+
+.btn {
+  border-radius: 30px;
+  font-weight: 600;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary {
+  color: #00b0ff;
+  border: 2px solid #00b0ff;
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: #00b0ff;
+  color: #ffffff;
+}
+
+.btn-outline-secondary {
+  color: #b64883;
+  border: 2px solid #a76790;
+  background-color: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #db4d88;
+  color: #ffffff;
+}
+
+.btn-outline-danger {
+  color: #e53935;
+  border: 2px solid #e53935;
+  background-color: transparent;
+}
+
+.btn-outline-danger:hover {
+  background-color: #e53935;
+  color: #ffffff;
+}
+
+.btn-primary {
+  background-color: #007aff;
+  border-color: #007aff;
+}
+
+.btn-primary:hover {
+  background-color: #0051cb;
+  border-color: #0051cb;
+}
+
+.btn-success {
+  background-color: #00c853;
+  border-color: #00c853;
+}
+
+.btn-success:hover {
+  background-color: #009624;
+  border-color: #009624;
+}
+
+/*
+   Tabs
+*/
+
+.nav-tabs .nav-link {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #00b0ff;
+  border-radius: 6px;
+  color: #ffffff;
+}
+
+/*
+   Cards & Product List
+*/
+
+main {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 200, 255, 0.4);
+}
+
+.product-img {
+  border-radius: 12px 12px 0 0;
+  height: 200px;
+  width: 100%;
+  object-fit: contain; 
+  background-color: #ffffff10; 
+}
+
+/* 
+   Forms & Inputs
+*/
+
+.form-control,
+input,
+textarea {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  caret-color: #ffffff;
+}
+
+.form-control:focus,
+input:focus,
+textarea:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #00d9ff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 217, 255, 0.25);
+  color: #ffffff !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #dddddd;
+  opacity: 1;
+}
+
+input[type="text"]:not(:placeholder-shown),
+input[type="email"]:not(:placeholder-shown),
+input[type="password"]:not(:placeholder-shown) {
+  color: #ffffff !important;
+}
+
+/* 
+   Wishlist / Orders / Lists
+ */
+
+.category-btn {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+}
+
+.category-btn.active {
+  background-color: #00b0ff;
+  border-color: #00b0ff;
+  color: #ffffff;
+}
+
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #ffffff;
+}
+
+/* 
+   Modals
+*/
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#checkoutMessage {
+  font-weight: bold;
+  color: #00e676;
+}
+
+/* 
+   Scrollbar
+*/
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* 
+   Account Section Fixes
+*/
+
+.account-section {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.account-field-label {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.account-field {
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  border-radius: 6px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+input[disabled],
+textarea[disabled] {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  cursor: default;
+}
+
+/*
+   Light Theme (Enhanced)
+*/
+
+.light-theme {
+  background: linear-gradient(-45deg, #fdfbfb, #cde1ea, #e3ecf5, #d9cce3);
+  background-size: 600% 600%;
+  animation: gradientFlow 20s ease infinite;
+  color: #212529;
+}
+
+.light-theme header {
+  background: linear-gradient(to right, #ffffff, #e3ecf5, #d9cce3);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme header h1 {
+  color: #343a40;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme main {
+  background-color: rgba(0, 0, 0, 0.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .card {
+  background-color: #ffffff;
+  color: #212529;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.238);
+}
+
+.light-theme .product-img {
+  background-color: #f8f9fa;
+}
+
+.light-theme .btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.light-theme .btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.light-theme .btn-outline-secondary {
+  color: #c94f9b;
+  border-color: #d489bb;
+}
+
+.light-theme .btn-outline-secondary:hover {
+  background-color: #d87fb5;
+  color: #ffffff;
+}
+
+.light-theme .btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.light-theme .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+.light-theme .nav-tabs .nav-link {
+  color: #000000;
+}
+
+.light-theme .nav-tabs .nav-link.active {
+  background-color: #007bff;
+}
+
+.light-theme .list-group-item {
+  background-color: #f8f9fa;
+  color: #000000;
+  border: 1px solid #dee2e6;
+}
+
+.light-theme .modal-content {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-theme input,
+.light-theme textarea {
+  background-color: #f0f2f5;
+  border: 1px solid #ced4da;
+  color: #212529 !important;
+  caret-color: #000;
+  text-color: #000;
+}
+
+.light-theme input[type="text"] {
+  color: #000;
+  caret-color: #000;
+  background-color: #fff;
+}
+
+.light-theme input:focus,
+.light-theme textarea:focus {
+  background-color: #ffffff;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.light-theme input::placeholder,
+.light-theme textarea::placeholder {
+  color: #6c757d;
+}
+
+.light-theme input[disabled],
+.light-theme textarea[disabled] {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
+
+.light-theme .category-btn {
+  color: #212529;
+  border: 1px solid #adb5bd;
+}
+
+.light-theme .category-btn.active {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #ffffff;
+}
+
+.light-theme .form-control:focus,
+.light-theme :focus,
+.light-theme :focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #00d9ff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 217, 255, 0.25);
+  color: #000000 !important;
+}
+
+.light-theme input::placeholder,
+.light-theme::placeholder {
+  color: #1f1c1c;
+  opacity: 1;
+}
+
+.light-theme[type="text"]:not(:placeholder-shown),
+.light-theme[type="email"]:not(:placeholder-shown),
+.light-theme[type="email"]:not(:placeholder-shown)[type="password"]:not(:placeholder-shown) {
+  color: #000000 !important;
+}
